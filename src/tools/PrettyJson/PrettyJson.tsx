@@ -78,8 +78,9 @@ export const PrettyJson = () => {
           alignItems="center"
           width={"50%"}
         >
-          <Typography width={110}>Spacing: {spacing}</Typography>
+          <Typography>Spacing: {spacing}</Typography>
           <Slider
+            sx={{ width: "50%" }}
             aria-label="spacing"
             marks
             min={0}
