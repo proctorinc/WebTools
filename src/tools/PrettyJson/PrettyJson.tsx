@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import { SwapHorizontalCircle, SwapVerticalCircle } from "@mui/icons-material";
 import { copyToClipboard } from "../../utils";
+import { ErrorBanner } from "./ErrorBanner";
+import { JsonInput } from "./JsonInput";
 
 export const PrettyJson = () => {
   const theme = useTheme();
@@ -66,9 +68,17 @@ export const PrettyJson = () => {
 
   return (
     <>
-      <Toolbar sx={{ justifyContent: "center", alignItems: "center", gap: 5 }}>
-        <Stack width={"50%"}>
-          <label>Spacing: {spacing}</label>
+      <Toolbar
+        sx={{ justifyContent: "space-evenly", alignItems: "center", gap: 5 }}
+      >
+        <Box
+          display="flex"
+          gap={2}
+          justifyContent="center"
+          alignItems="center"
+          width={"50%"}
+        >
+          <Typography width={110}>Spacing: {spacing}</Typography>
           <Slider
             aria-label="spacing"
             marks
@@ -77,28 +87,19 @@ export const PrettyJson = () => {
             value={spacing}
             onChange={handleSpacingChange}
           />
-        </Stack>
-        <IconButton
-          sx={{ position: "absolute", right: 0 }}
-          color="primary"
-          onClick={toggleLayout}
-        >
-          {horizontalLayout ? <SwapVerticalCircle /> : <SwapHorizontalCircle />}
-        </IconButton>
+        </Box>
+        <Box display="flex" gap={0} justifyContent="center" alignItems="center">
+          <Typography>Orientation:</Typography>
+          <IconButton color="primary" onClick={toggleLayout}>
+            {horizontalLayout ? (
+              <SwapVerticalCircle />
+            ) : (
+              <SwapHorizontalCircle />
+            )}
+          </IconButton>
+        </Box>
       </Toolbar>
-      {error && (
-        <Paper
-          variant="outlined"
-          sx={{
-            p: 1,
-            color: theme.palette.error.main,
-            borderColor: theme.palette.error.main,
-            backgroundColor: theme.palette.error.contrastText,
-          }}
-        >
-          <Typography>{error}</Typography>
-        </Paper>
-      )}
+      <ErrorBanner message={error} />
       <Grid container spacing={2}>
         <Grid
           display="flex"
@@ -107,26 +108,10 @@ export const PrettyJson = () => {
           xs={horizontalLayout ? 6 : 12}
           width="100%"
         >
-          <label htmlFor="input">
-            <Typography variant="subtitle1" paddingY={1}>
-              Input:
-            </Typography>
-          </label>
-          <TextareaAutosize
-            id="input"
-            style={{
-              resize: "none",
-              borderRadius: 8,
-              padding: 10,
-              borderColor: error && theme.palette.error.main,
-              outlineColor: error
-                ? theme.palette.error.main
-                : theme.palette.primary.main,
-            }}
-            minRows={10}
-            maxRows={25}
-            value={userJson}
+          <JsonInput
+            json={userJson}
             onChange={handleInputChange}
+            error={error}
           />
         </Grid>
         <Grid
@@ -136,23 +121,7 @@ export const PrettyJson = () => {
           xs={horizontalLayout ? 6 : 12}
           width="100%"
         >
-          <label htmlFor="output">
-            <Typography variant="subtitle1" paddingY={1}>
-              Output:
-            </Typography>
-          </label>
-          <TextareaAutosize
-            id="output"
-            disabled={true}
-            style={{
-              resize: "none",
-              borderRadius: 8,
-              padding: 10,
-            }}
-            minRows={10}
-            maxRows={25}
-            value={prettyJson}
-          />
+          <JsonInput json={prettyJson} disabled />
           <Box display="flex" justifyContent="center">
             <Button
               disabled={error !== "" || prettyJson.length <= 2}
