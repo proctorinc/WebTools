@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { CODE_GENERATOR_TOOL, DATA_TOOL, MISC_TOOL } from "../constants";
-import { BaseEncoderTool } from "../features/BaseEncoder";
-import { ColorPickerTool } from "../features/ColorPicker";
-import { JsonPrettyTool } from "../features/PrettyJson";
+import { BaseEncoderTool } from "../tools/BaseEncoder";
+import { ColorPickerTool } from "../tools/ColorPicker";
+import { JsonPrettyTool } from "../tools/PrettyJson";
 
 export const useTools = () => {
   const tools = [BaseEncoderTool, ColorPickerTool, JsonPrettyTool];
