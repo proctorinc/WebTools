@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AppBody } from "./components/App/AppBody";
+import { AppBody } from "./components/App";
 import { Sidebar } from "./components/Sidebar";
 import { AppRoutes } from "./routes";
 
