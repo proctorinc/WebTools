@@ -1,5 +1,5 @@
 import { useRoutes } from "react-router-dom";
-import { ToolLayout } from "../components/App/ToolLayout";
+import { ToolLayout } from "../components/Tool";
 import { useTools } from "../hooks/useTools";
 
 export const AppRoutes = () => {
