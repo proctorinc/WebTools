@@ -105,6 +105,7 @@ export const PrettyJson = () => {
           width="100%"
         >
           <JsonInput
+            label="Input"
             json={userJson}
             onChange={handleInputChange}
             error={error}
@@ -117,7 +118,7 @@ export const PrettyJson = () => {
           xs={horizontalLayout ? 6 : 12}
           width="100%"
         >
-          <JsonInput json={prettyJson} disabled />
+          <JsonInput label="Output" json={prettyJson} disabled />
           <Box display="flex" justifyContent="center">
             <Button
               disabled={error !== "" || prettyJson.length <= 2}
