@@ -104,7 +104,7 @@ export const ColorPicker = () => {
         </Grid>
       </Grid>
       <Grid container justifyContent="center" paddingY={5} spacing={2}>
-        <Grid display="flex" flexDirection="column" item xs={5} width="100%">
+        <Grid display="flex" flexDirection="column" item xs={6}>
           <TextField
             label="HEX"
             variant="outlined"
@@ -115,7 +115,7 @@ export const ColorPicker = () => {
             }}
           />
         </Grid>
-        <Grid display="flex" flexDirection="column" item xs={5} width="100%">
+        <Grid display="flex" flexDirection="column" item xs={6}>
           <TextField
             label="RGB"
             variant="outlined"
@@ -126,7 +126,7 @@ export const ColorPicker = () => {
             }}
           />
         </Grid>
-        <Grid display="flex" flexDirection="column" item xs={5} width="100%">
+        <Grid display="flex" flexDirection="column" item xs={6}>
           <TextField
             label="HSV"
             variant="outlined"
@@ -137,7 +137,7 @@ export const ColorPicker = () => {
             }}
           />
         </Grid>
-        <Grid display="flex" flexDirection="column" item xs={5} width="100%">
+        <Grid display="flex" flexDirection="column" item xs={6}>
           <TextField
             label="HSL"
             variant="outlined"
