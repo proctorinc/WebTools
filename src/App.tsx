@@ -1,6 +1,8 @@
-import { AppLayout } from "./components/App/AppLayout";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppBody } from "./components/App/AppBody";
+import { Sidebar } from "./components/Sidebar";
+import { AppRoutes } from "./routes";
 
 function App() {
   const theme = createTheme({
@@ -15,11 +17,12 @@ function App() {
   });
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<AppLayout />} />
-        </Routes>
-      </BrowserRouter>
+      <Router>
+        <Sidebar />
+        <AppBody>
+          <AppRoutes />
+        </AppBody>
+      </Router>
     </ThemeProvider>
   );
 }
