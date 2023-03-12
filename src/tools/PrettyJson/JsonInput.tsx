@@ -2,6 +2,7 @@ import { ChangeEventHandler } from "react";
 import { TextareaAutosize, Typography, useTheme } from "@mui/material";
 
 type JsonInputProps = {
+  label: string;
   json: string;
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;
   error?: string;
@@ -9,17 +10,17 @@ type JsonInputProps = {
 };
 
 export const JsonInput = (props: JsonInputProps) => {
-  const { error, json, onChange, disabled = false } = props;
+  const { label, error, json, onChange, disabled = false } = props;
   const theme = useTheme();
   return (
     <>
-      <label htmlFor="input">
+      <label htmlFor={`${label}-input`}>
         <Typography variant="subtitle1" paddingY={1}>
-          Input:
+          {label}:
         </Typography>
       </label>
       <TextareaAutosize
-        id="input"
+        id={`${label}-input`}
         style={{
           resize: "none",
           borderRadius: 8,
