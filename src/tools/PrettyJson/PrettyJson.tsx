@@ -4,21 +4,16 @@ import {
   Button,
   Grid,
   IconButton,
-  Paper,
   Slider,
-  Stack,
-  TextareaAutosize,
   Toolbar,
   Typography,
-  useTheme,
 } from "@mui/material";
 import { SwapHorizontalCircle, SwapVerticalCircle } from "@mui/icons-material";
-import { copyToClipboard } from "../../utils";
 import { ErrorBanner } from "./ErrorBanner";
 import { JsonInput } from "./JsonInput";
+import { copyToClipboard } from "../../utils";
 
 export const PrettyJson = () => {
-  const theme = useTheme();
   const [userJson, setUserJson] = useState("{}");
   const [prettyJson, setPrettyJson] = useState("{}");
   const [spacing, setSpacing] = useState(2);
