@@ -43,8 +43,8 @@ export const PrettyJson = () => {
       if (error) {
         setError("");
       }
-    } catch (e) {
-      setError("Error: Invalid JSON format");
+    } catch (error) {
+      setError(`Invalid JSON: ${(error as Error).message}`);
     }
   };
 
@@ -73,7 +73,7 @@ export const PrettyJson = () => {
             aria-label="spacing"
             marks
             min={0}
-            max={10}
+            max={5}
             value={spacing}
             onChange={handleSpacingChange}
           />
