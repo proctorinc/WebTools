@@ -13,7 +13,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { SwapHorizontalCircle, SwapVerticalCircle } from "@mui/icons-material";
-import { copyToClipboard } from "../../../utils";
+import { copyToClipboard } from "../../utils";
 
 export const PrettyJson = () => {
   const theme = useTheme();

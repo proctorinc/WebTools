@@ -3,7 +3,7 @@ import { Grid, IconButton, InputAdornment, TextField } from "@mui/material";
 import { HslaColor, HslaColorPicker, HsvaColor } from "react-colorful";
 import { colord, getFormat } from "colord";
 import { CopyAll } from "@mui/icons-material";
-import { copyToClipboard } from "../../../utils";
+import { copyToClipboard } from "../../utils";
 
 const formatHsv = (hsv: HsvaColor) => {
   return `hsv${hsv.a !== 1 ? "a" : ""}(${hsv.h}, ${hsv.s}%, ${hsv.v}%${
